@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT — PORTFOLIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --void: #0a0a0a;
+            --cream: #F5F0E8;
+            --hot: #FF10F0;
+            --electric: #39FF14;
+            --acid: #D4FF00;
+            --violet: #9D4EDD;
+            --orange: #FF6B35;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--void);
+            color: var(--cream);
+            font-family: 'Space Mono', monospace;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        .noise {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: transparent url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>');
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.035;
+            animation: noise 0.4s steps(8) infinite;
+        }
+
+        @keyframes noise {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(-3%, 3%);
+            }
+
+            50% {
+                transform: translate(3%, -3%);
+            }
+
+            75% {
+                transform: translate(-3%, -3%);
+            }
+        }
+
+        .cursor-dot {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: var(--hot);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10001;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-ring {
+            position: fixed;
+            width: 45px;
+            height: 45px;
+            border: 2px solid var(--hot);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            transition: all 0.15s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .cursor-ring.hovering {
+            width: 80px;
+            height: 80px;
+            border-color: var(--electric);
+            background: rgba(0, 245, 212, 0.1);
+        }
+
+        .text-massive {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(80px, 18vw, 350px);
+            line-height: 0.82;
+            letter-spacing: -0.02em;
+        }
+
+        .text-huge {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(50px, 10vw, 160px);
+            line-height: 0.85;
+        }
+
+        .text-large {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(28px, 4vw, 56px);
+            line-height: 1;
+            font-weight: 800;
+        }
+
+        .text-stroke {
+            -webkit-text-stroke: 3px currentColor;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            color: var(--hot);
+            animation: glitch-1 0.25s infinite linear alternate-reverse;
+            clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+        }
+
+        .glitch::after {
+            color: var(--electric);
+            animation: glitch-2 0.25s infinite linear alternate-reverse;
+            clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+        }
+
+        @keyframes glitch-1 {
+            0% {
+                transform: translate(0);
+            }
+
+            25% {
+                transform: translate(-4px, 4px);
+            }
+
+            50% {
+                transform: translate(4px, -4px);
+            }
+
+            75% {
+                transform: translate(-4px, -4px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        @keyframes glitch-2 {
+            0% {
+                transform: translate(0);
+            }
+
+            25% {
+                transform: translate(4px, -4px);
+            }
+
+            50% {
+                transform: translate(-4px, 4px);
+            }
+
+            75% {
+                transform: translate(4px, 4px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            mix-blend-mode: difference;
+        }
+
+        .nav-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            color: var(--cream);
+        }
+
+        .nav-back {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--cream);
+            font-size: 12px;
+            letter-spacing: 2px;
+            transition: gap 0.3s;
+        }
+
+        .nav-back:hover {
+            gap: 20px;
+        }
+
+        .nav-back-arrow {
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+
+        .nav-back:hover .nav-back-arrow {
+            transform: translateX(-5px);
+        }
+
+        .project-hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .project-hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(40%);
+            transform: scale(1.1);
+            transition: transform 10s ease-out;
+        }
+
+        .project-hero:hover .project-hero-bg img {
+            transform: scale(1);
+        }
+
+        .project-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--void) 0%, rgba(10, 10, 10, 0.5) 50%, rgba(10, 10, 10, 0.3) 100%);
+        }
+
+        .project-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 120px;
+            line-height: 1;
+            opacity: 0.1;
+            position: absolute;
+            top: 150px;
+            right: 60px;
+        }
+
+        .project-category {
+            font-size: 10px;
+            letter-spacing: 3px;
+            opacity: 0.5;
+            margin-bottom: 20px;
+        }
+
+        .project-title {
+            max-width: 900px;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .project-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .project-meta-label {
+            font-size: 9px;
+            letter-spacing: 2px;
+            opacity: 0.5;
+        }
+
+        .project-meta-value {
+            font-size: 14px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            right: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            font-size: 10px;
+            letter-spacing: 2px;
+            opacity: 0.5;
+        }
+
+        .scroll-line-vertical {
+            width: 1px;
+            height: 60px;
+            background: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll-line-vertical::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--hot);
+            animation: scroll-pulse-vertical 2s ease-in-out infinite;
+        }
+
+        @keyframes scroll-pulse-vertical {
+            0% {
+                top: -100%;
+            }
+
+            100% {
+                top: 100%;
+            }
+        }
+
+        .project-overview {
+            padding: 120px 60px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 100px;
+        }
+
+        .project-overview-label {
+            font-size: 10px;
+            letter-spacing: 3px;
+            opacity: 0.5;
+            margin-bottom: 20px;
+        }
+
+        .project-overview-title {
+            margin-bottom: 40px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .project-tag {
+            padding: 10px 20px;
+            border: 1px solid rgba(245, 240, 232, 0.2);
+            font-size: 10px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .project-tag:hover {
+            background: var(--cream);
+            color: var(--void);
+            border-color: var(--cream);
+        }
+
+        .project-overview-right p {
+            font-size: 18px;
+            line-height: 1.9;
+            opacity: 0.8;
+            margin-bottom: 24px;
+        }
+
+        .project-highlight {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(24px, 3vw, 36px);
+            font-weight: 700;
+            color: var(--hot);
+            line-height: 1.3;
+            margin: 50px 0;
+            padding-left: 30px;
+            border-left: 4px solid var(--hot);
+        }
+
+        .project-gallery {
+            padding: 0 60px 120px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .gallery-item:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        .gallery-item.large {
+            grid-column: span 8;
+            aspect-ratio: 16/10;
+        }
+
+        .gallery-item.medium {
+            grid-column: span 4;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item.wide {
+            grid-column: span 12;
+            aspect-ratio: 21/9;
+        }
+
+        .gallery-item.half {
+            grid-column: span 6;
+            aspect-ratio: 4/3;
+        }
+
+        .project-process {
+            padding: 120px 60px;
+            background: linear-gradient(to bottom, transparent, rgba(255, 0, 80, 0.03));
+        }
+
+        .process-header {
+            margin-bottom: 80px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .process-card {
+            padding: 40px;
+            border: 1px solid rgba(245, 240, 232, 0.1);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--hot);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .process-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .process-card:hover {
+            border-color: rgba(245, 240, 232, 0.3);
+            transform: translateY(-10px);
+        }
+
+        .process-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 60px;
+            opacity: 0.1;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .process-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .process-desc {
+            font-size: 14px;
+            line-height: 1.7;
+            opacity: 0.7;
+        }
+
+        .project-results {
+            padding: 120px 60px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 40px;
+            border: 1px solid rgba(245, 240, 232, 0.1);
+            transition: all 0.3s;
+        }
+
+        .result-card:hover {
+            background: rgba(255, 0, 80, 0.05);
+            border-color: var(--hot);
+        }
+
+        .result-value {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 72px;
+            color: var(--hot);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .result-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            opacity: 0.5;
+        }
+
+        .project-nav {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-top: 1px solid rgba(245, 240, 232, 0.1);
+        }
+
+        .project-nav-item {
+            padding: 60px;
+            text-decoration: none;
+            color: var(--cream);
+            transition: background 0.4s;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .project-nav-item:first-child {
+            border-right: 1px solid rgba(245, 240, 232, 0.1);
+        }
+
+        .project-nav-item:hover {
+            background: rgba(255, 0, 80, 0.05);
+        }
+
+        .project-nav-item:last-child {
+            text-align: right;
+            align-items: flex-end;
+        }
+
+        .project-nav-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            opacity: 0.5;
+        }
+
+        .project-nav-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(32px, 5vw, 64px);
+            transition: color 0.3s;
+        }
+
+        .project-nav-item:hover .project-nav-title {
+            color: var(--hot);
+        }
+
+        .footer {
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(245, 240, 232, 0.1);
+        }
+
+        .footer-left {
+            font-size: 11px;
+            opacity: 0.5;
+        }
+
+        .footer-center {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-link {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 1px;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 {
+            transition-delay: 0.1s;
+        }
+
+        .stagger-2 {
+            transition-delay: 0.2s;
+        }
+
+        .stagger-3 {
+            transition-delay: 0.3s;
+        }
+
+        .stagger-4 {
+            transition-delay: 0.4s;
+        }
+
+        .stagger-5 {
+            transition-delay: 0.5s;
+        }
+
+        @media (max-width: 1024px) {
+            .project-overview {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item.large,
+            .gallery-item.medium,
+            .gallery-item.half {
+                grid-column: span 12;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-hero {
+                padding: 24px;
+            }
+
+            .project-overview,
+            .project-gallery,
+            .project-process,
+            .project-results {
+                padding: 60px 24px;
+            }
+
+            .project-meta {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .project-number {
+                display: none;
+            }
+
+            .project-nav {
+                grid-template-columns: 1fr;
+            }
+
+            .project-nav-item:first-child {
+                border-right: none;
+                border-bottom: 1px solid rgba(245, 240, 232, 0.1);
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer {
+                padding: 24px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            body {
+                cursor: auto;
+            }
+
+            .cursor-dot,
+            .cursor-ring {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="noise"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <nav class="nav">
+        <a href="index_1.html" class="nav-logo">PORTFOLIO</a>
+        <a href="index_1.html#work" class="nav-back">
+            <span class="nav-back-arrow">←</span>
+            <span>BACK TO WORK</span>
+        </a>
+    </nav>
+
+    <section class="project-hero">
+        <div class="project-hero-bg">
+            <img id="heroImage" src="" alt="Project">
+            <div class="project-hero-overlay"></div>
+        </div>
+        <span class="project-number" id="projectNum"></span>
+        <div class="project-hero-content">
+            <p class="project-category reveal" id="projectCategory"></p>
+            <h1 class="text-massive project-title glitch reveal stagger-1" id="projectTitle1" data-text=""></h1>
+            <h1 class="text-huge project-title reveal stagger-2" style="color: var(--hot);" id="projectTitle2"></h1>
+            <div class="project-meta reveal stagger-3">
+                <div class="project-meta-item">
+                    <span class="project-meta-label">ROLE</span>
+                    <span class="project-meta-value" id="projectRole"></span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">YEAR</span>
+                    <span class="project-meta-value" id="projectYear"></span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">TECH</span>
+                    <span class="project-meta-value" id="projectTech"></span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>SCROLL</span>
+            <div class="scroll-line-vertical"></div>
+        </div>
+    </section>
+
+    <section class="project-overview">
+        <div class="project-overview-left">
+            <p class="project-overview-label reveal">PROJECT OVERVIEW</p>
+            <h2 class="text-large project-overview-title reveal stagger-1">THE CHALLENGE</h2>
+            <div class="project-tags reveal stagger-2" id="projectTags"></div>
+        </div>
+        <div class="project-overview-right">
+            <p class="reveal" id="projectDesc1"></p>
+            <p class="reveal stagger-1" id="projectDesc2"></p>
+            <p class="project-highlight reveal stagger-2" id="projectQuote"></p>
+            <p class="reveal stagger-3" id="projectDesc3"></p>
+        </div>
+    </section>
+
+    <section class="project-gallery">
+        <div class="gallery-grid">
+            <div class="gallery-item large reveal">
+                <img id="galleryImg1" src="" alt="Project Image">
+            </div>
+            <div class="gallery-item medium reveal stagger-1">
+                <img id="galleryImg2" src="" alt="Project Image">
+            </div>
+            <div class="gallery-item wide reveal stagger-2">
+                <img id="galleryImg3" src="" alt="Project Image">
+            </div>
+            <div class="gallery-item half reveal stagger-3">
+                <img id="galleryImg4" src="" alt="Project Image">
+            </div>
+            <div class="gallery-item half reveal stagger-4">
+                <img id="galleryImg5" src="" alt="Project Image">
+            </div>
+        </div>
+    </section>
+
+    <section class="project-process">
+        <div class="process-header">
+            <p class="project-overview-label reveal">THE APPROACH</p>
+            <h2 class="text-large reveal stagger-1">PROCESS</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-card reveal">
+                <span class="process-number">01</span>
+                <h3 class="process-title">Research & Discovery</h3>
+                <p class="process-desc">Understanding the problem space through user research, competitive analysis, and
+                    stakeholder interviews to define clear project goals.</p>
+            </div>
+            <div class="process-card reveal stagger-1">
+                <span class="process-number">02</span>
+                <h3 class="process-title">Design & Prototyping</h3>
+                <p class="process-desc">Iterative design process with wireframes, high-fidelity mockups, and interactive
+                    prototypes tested with real users.</p>
+            </div>
+            <div class="process-card reveal stagger-2">
+                <span class="process-number">03</span>
+                <h3 class="process-title">Development & Launch</h3>
+                <p class="process-desc">Clean, performant code implementation with continuous integration, testing, and
+                    optimization for production deployment.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-results">
+        <p class="project-overview-label reveal">THE IMPACT</p>
+        <h2 class="text-large reveal stagger-1">RESULTS</h2>
+        <div class="results-grid">
+            <div class="result-card reveal stagger-2">
+                <span class="result-value" id="result1"></span>
+                <span class="result-label" id="resultLabel1"></span>
+            </div>
+            <div class="result-card reveal stagger-3">
+                <span class="result-value" id="result2"></span>
+                <span class="result-label" id="resultLabel2"></span>
+            </div>
+            <div class="result-card reveal stagger-4">
+                <span class="result-value" id="result3"></span>
+                <span class="result-label" id="resultLabel3"></span>
+            </div>
+            <div class="result-card reveal stagger-5">
+                <span class="result-value" id="result4"></span>
+                <span class="result-label" id="resultLabel4"></span>
+            </div>
+        </div>
+    </section>
+
+    <nav class="project-nav">
+        <a id="prevProject" href="" class="project-nav-item">
+            <span class="project-nav-label">← PREVIOUS PROJECT</span>
+            <span class="project-nav-title" id="prevTitle"></span>
+        </a>
+        <a id="nextProject" href="" class="project-nav-item">
+            <span class="project-nav-label">NEXT PROJECT →</span>
+            <span class="project-nav-title" id="nextTitle"></span>
+        </a>
+    </nav>
+
+    <footer class="footer">
+        <div class="footer-left">© 2026 — ALL RIGHTS RESERVED</div>
+        <div class="footer-center">PORTFOLIO</div>
+        <div class="footer-right">
+            <a href="#" class="footer-link">TWITTER</a>
+            <a href="#" class="footer-link">INSTAGRAM</a>
+            <a href="#" class="footer-link">GITHUB</a>
+        </div>
+    </footer>
+
+    <script>
+        const projects = {
+            2: {
+                num: '02',
+                category: '3D AUDIO-VISUAL EXPERIENCE',
+                title1: 'SPATIAL', title2: 'ECHO',
+                role: 'Creative Developer',
+                year: '2025',
+                tech: 'Three.js, Web Audio API, GSAP',
+                tags: ['THREE.JS', 'WEBGL', 'AUDIO', 'GSAP'],
+                desc1: 'Spatial Echo is an immersive 3D audio-visual experience that responds to sound in real-time. The project explores the relationship between visual space and auditory perception.',
+                desc2: 'Using the Web Audio API and Three.js, we created a responsive environment where every sound creates ripples of visual feedback, transforming music into explorable landscapes.',
+                quote: '"Sound is not just heard—it becomes a space you can walk through, a world you can explore."',
+                desc3: 'The experience adapts to any audio source, from ambient soundscapes to electronic beats, creating unique visual interpretations that users can navigate and interact with.',
+                heroImg: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1800&q=80',
+                galleryImgs: [
+                    'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=1200&q=80',
+                    'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=800&q=80',
+                    'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1600&q=80',
+                    'https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=800&q=80',
+                    'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=800&q=80'
+                ],
+                results: ['100K+', '8.5K', '4.9★', '2'],
+                resultLabels: ['INTERACTIONS', 'UNIQUE VISITORS', 'USER RATING', 'FEATURED AWARDS'],
+                prev: { href: 'project-1.html', title: 'NEURAL CANVAS' },
+                next: { href: 'project-3.html', title: 'CHROMATIC FLOW' }
+            },
+            3: {
+                num: '03',
+                category: 'BRAND IDENTITY SYSTEM',
+                title1: 'CHROMATIC', title2: 'FLOW',
+                role: 'Brand Designer & Developer',
+                year: '2024',
+                tech: 'Figma, SVG Animation, GSAP',
+                tags: ['BRANDING', 'GENERATIVE', 'SVG', 'MOTION'],
+                desc1: 'Chromatic Flow is a dynamic brand identity system featuring generative visual elements that evolve and adapt while maintaining brand consistency.',
+                desc2: 'The challenge was creating a visual identity that feels alive—constantly shifting yet always recognizable. We developed a system of rules that govern how colors and shapes interact.',
+                quote: '"A brand that breathes, adapts, and evolves—while never losing its essential character."',
+                desc3: 'Every application of the brand generates unique variations within defined parameters, ensuring fresh visuals across all touchpoints while maintaining cohesive brand recognition.',
+                heroImg: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=1800&q=80',
+                galleryImgs: [
+                    'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1200&q=80',
+                    'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80',
+                    'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1600&q=80',
+                    'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=800&q=80',
+                    'https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=800&q=80'
+                ],
+                results: ['500+', '15', '98%', '1'],
+                resultLabels: ['BRAND ASSETS', 'APPLICATIONS', 'CLIENT SATISFACTION', 'REBRAND AWARD'],
+                prev: { href: 'project-2.html', title: 'SPATIAL ECHO' },
+                next: { href: 'project-4.html', title: 'VOID INTERFACE' }
+            },
+            4: {
+                num: '04',
+                category: 'DATA VISUALIZATION DASHBOARD',
+                title1: 'VOID', title2: 'INTERFACE',
+                role: 'UI/UX Designer',
+                year: '2024',
+                tech: 'React, D3.js, Framer Motion',
+                tags: ['UI/UX', 'DATA VIZ', 'REACT', 'D3.JS'],
+                desc1: 'Void Interface is a minimal dashboard design system focused on making complex data accessible and actionable through thoughtful visualization.',
+                desc2: 'The dark aesthetic reduces eye strain during long sessions while the carefully calibrated color palette ensures data points remain clearly distinguishable.',
+                quote: '"Complexity in data, simplicity in presentation—every pixel serves a purpose."',
+                desc3: 'Interactive charts and real-time updates provide users with immediate insights, while customizable views allow each user to focus on their most important metrics.',
+                heroImg: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=1800&q=80',
+                galleryImgs: [
+                    'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80',
+                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
+                    'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1600&q=80',
+                    'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80',
+                    'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=800&q=80'
+                ],
+                results: ['40%', '200+', '4.7★', '3'],
+                resultLabels: ['FASTER INSIGHTS', 'DASHBOARD VIEWS', 'USER RATING', 'ENTERPRISE CLIENTS'],
+                prev: { href: 'project-3.html', title: 'CHROMATIC FLOW' },
+                next: { href: 'project-5.html', title: 'PULSE MOTION' }
+            },
+            5: {
+                num: '05',
+                category: 'MOTION GRAPHICS TOOLKIT',
+                title1: 'PULSE', title2: 'MOTION',
+                role: 'Motion Designer & Developer',
+                year: '2025',
+                tech: 'After Effects, Lottie, React',
+                tags: ['MOTION', 'AFTER EFFECTS', 'LOTTIE', 'ANIMATION'],
+                desc1: 'Pulse Motion is an experimental motion graphics toolkit designed for creative agencies, providing a library of customizable animations and transitions.',
+                desc2: 'Each animation component is built with performance in mind, optimized for web delivery through Lottie while maintaining the fluidity of After Effects originals.',
+                quote: '"Motion gives interfaces soul—every transition is an opportunity to delight."',
+                desc3: 'The toolkit includes over 200 pre-built animations, a visual customization interface, and seamless integration with popular design and development tools.',
+                heroImg: 'https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=1800&q=80',
+                galleryImgs: [
+                    'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&q=80',
+                    'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&q=80',
+                    'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1600&q=80',
+                    'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&q=80',
+                    'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80'
+                ],
+                results: ['200+', '5K', '30%', '12'],
+                resultLabels: ['ANIMATIONS', 'DOWNLOADS', 'TIME SAVED', 'AGENCY PARTNERS'],
+                prev: { href: 'project-4.html', title: 'VOID INTERFACE' },
+                next: { href: 'project-1.html', title: 'NEURAL CANVAS' }
+            }
+        };
+
+        // Get project number from URL
+        const projectNum = parseInt(window.location.pathname.match(/project-(\d+)/)?.[1] || 2);
+        const project = projects[projectNum];
+
+        if (project) {
+            document.title = `${project.title1} ${project.title2} — PROJECT`;
+            document.getElementById('projectNum').textContent = project.num;
+            document.getElementById('projectCategory').textContent = project.category;
+            document.getElementById('projectTitle1').textContent = project.title1;
+            document.getElementById('projectTitle1').dataset.text = project.title1;
+            document.getElementById('projectTitle2').textContent = project.title2;
+            document.getElementById('projectRole').textContent = project.role;
+            document.getElementById('projectYear').textContent = project.year;
+            document.getElementById('projectTech').textContent = project.tech;
+            document.getElementById('heroImage').src = project.heroImg;
+
+            const tagsContainer = document.getElementById('projectTags');
+            project.tags.forEach(tag => {
+                const span = document.createElement('span');
+                span.className = 'project-tag';
+                span.textContent = tag;
+                tagsContainer.appendChild(span);
+            });
+
+            document.getElementById('projectDesc1').textContent = project.desc1;
+            document.getElementById('projectDesc2').textContent = project.desc2;
+            document.getElementById('projectQuote').textContent = project.quote;
+            document.getElementById('projectDesc3').textContent = project.desc3;
+
+            project.galleryImgs.forEach((img, i) => {
+                document.getElementById(`galleryImg${i + 1}`).src = img;
+            });
+
+            project.results.forEach((val, i) => {
+                document.getElementById(`result${i + 1}`).textContent = val;
+                document.getElementById(`resultLabel${i + 1}`).textContent = project.resultLabels[i];
+            });
+
+            document.getElementById('prevProject').href = project.prev.href;
+            document.getElementById('prevTitle').textContent = project.prev.title;
+            document.getElementById('nextProject').href = project.next.href;
+            document.getElementById('nextTitle').textContent = project.next.title;
+        }
+
+        // Cursor
+        const cursorDot = document.getElementById('cursorDot');
+        const cursorRing = document.getElementById('cursorRing');
+        let mouseX = 0, mouseY = 0, dotX = 0, dotY = 0, ringX = 0, ringY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            dotX += (mouseX - dotX) * 0.2;
+            dotY += (mouseY - dotY) * 0.2;
+            ringX += (mouseX - ringX) * 0.1;
+            ringY += (mouseY - ringY) * 0.1;
+            cursorDot.style.left = dotX - 4 + 'px';
+            cursorDot.style.top = dotY - 4 + 'px';
+            cursorRing.style.left = ringX - 22.5 + 'px';
+            cursorRing.style.top = ringY - 22.5 + 'px';
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        const hoverEls = document.querySelectorAll('a, button, .project-tag, .process-card, .result-card');
+        hoverEls.forEach(el => {
+            el.addEventListener('mouseenter', () => cursorRing.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => cursorRing.classList.remove('hovering'));
+        });
+
+        // Scroll reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        window.addEventListener('load', () => {
+            document.querySelectorAll('section:first-of-type .reveal').forEach(el => {
+                el.classList.add('visible');
+            });
+        });
+    </script>
+</body>
+
+</html>
