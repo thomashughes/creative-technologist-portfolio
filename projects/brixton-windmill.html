@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brixton Windmill — Thomas Hughes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-text" id="cursorText">VIEW</div>
+    <div id="nav-placeholder"></div>
+
+    <section class="project-hero">
+        <div class="project-hero-bg">
+            <img src="../assets/images/placeholder-windmill-hero.jpg" alt="Brixton Windmill">
+            <div class="project-hero-overlay"></div>
+        </div>
+        <div class="project-hero-content">
+            <a href="../index.html#work" class="project-hero-back">← BACK TO PROJECTS</a>
+            <h1 class="project-hero-title">BRIXTON WINDMILL</h1>
+            <p class="project-hero-subtitle">
+                An immersive 360° tour combining aerial Gaussian splats with ground-level photography, creating a seamless exploration experience of this historic London landmark.
+            </p>
+            <div class="project-hero-meta">
+                <div class="project-meta-item">
+                    <span class="project-meta-label">ROLE</span>
+                    <span class="project-meta-value">Creator</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">YEAR</span>
+                    <span class="project-meta-value">2025</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">TYPE</span>
+                    <span class="project-meta-value">360 Tour / Gaussian Splat</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="project-body">
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Overview</h2>
+            <div class="project-text">
+                <p>
+                    Brixton Windmill is one of only two surviving windmills in London, and this project brings it to life digitally. Using aerial Gaussian splat capture, visitors can explore the windmill from above before zooming down to street level where 360° photography takes over.
+                </p>
+                <p>
+                    The experience seamlessly transitions between aerial and ground perspectives, with informational hotspots pulling live data from the windmill's official website to ensure content stays current.
+                </p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">The Experience</h2>
+            <div class="project-features">
+                <div class="project-feature">
+                    <div class="project-feature-icon">🚁</div>
+                    <h3 class="project-feature-title">Aerial Splat View</h3>
+                    <p class="project-feature-desc">Gaussian splat capture from above showing the windmill in its urban context.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">📍</div>
+                    <h3 class="project-feature-title">Seamless Transition</h3>
+                    <p class="project-feature-desc">Zoom from aerial view directly into ground-level 360° photography positions.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">🔄</div>
+                    <h3 class="project-feature-title">360° Ground Tour</h3>
+                    <p class="project-feature-desc">Multiple ground-based panoramic viewpoints around and inside the windmill.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">🔗</div>
+                    <h3 class="project-feature-title">Live Data Integration</h3>
+                    <p class="project-feature-desc">Information panels pull current data from the windmill's official website.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Gallery</h2>
+            <div class="project-gallery">
+                <div class="project-gallery-item">
+                    <img src="../assets/images/placeholder-windmill-aerial.jpg" alt="Aerial Gaussian Splat">
+                </div>
+                <div class="project-gallery-item">
+                    <img src="../assets/images/placeholder-windmill-360.jpg" alt="360 Ground View">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Technical Approach</h2>
+            <div class="project-text">
+                <p>
+                    The aerial Gaussian splat was captured using drone footage processed through specialized 3DGS software. Ground-level 360° images were shot with a panoramic camera and stitched for seamless viewing. The transition between perspectives is handled through custom Three.js camera animations.
+                </p>
+            </div>
+            <div class="skills-list mt-40">
+                <span class="skill-item">GAUSSIAN SPLATS</span>
+                <span class="skill-item">THREE.JS</span>
+                <span class="skill-item">360° PHOTOGRAPHY</span>
+                <span class="skill-item">PANNELLUM</span>
+            </div>
+        </section>
+    </main>
+
+    <section class="next-project">
+        <p class="next-project-label">NEXT PROJECT</p>
+        <a href="brixton-splat-tour.html" class="next-project-link">
+            <h2 class="next-project-title">BRIXTON SPLAT TOUR →</h2>
+        </a>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="../js/components.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

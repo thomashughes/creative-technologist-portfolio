@@ -1,0 +1,22 @@
+<nav class="nav">
+    <div class="nav-logo"><a href="#" id="nav-home-link">TH</a></div>
+    <div class="nav-links">
+        <a href="#" id="nav-work-link">WORK</a>
+        <a href="#" id="nav-about-link">ABOUT</a>
+        <a href="#" id="nav-experiments-link">EXPERIMENTS</a>
+        <a href="#" id="nav-contact-link">CONTACT</a>
+    </div>
+</nav>
+<script>
+    // Set correct paths based on current location
+    (function() {
+        const isInSubfolder = window.location.pathname.includes('/projects/');
+        const prefix = isInSubfolder ? '../' : '';
+        
+        document.getElementById('nav-home-link').href = prefix + 'index.html';
+        document.getElementById('nav-work-link').href = prefix + 'index.html#work';
+        document.getElementById('nav-about-link').href = prefix + 'index.html#about';
+        document.getElementById('nav-experiments-link').href = prefix + 'projects/creative-experiments.html';
+        document.getElementById('nav-contact-link').href = prefix + 'index.html#contact';
+    })();
+</script>
