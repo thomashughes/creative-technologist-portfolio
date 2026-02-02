@@ -1,5 +1,27 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+
+# OS files
 .DS_Store
-node_modules
-.env
-.idea
-.vscode
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+
+# Temp
+*.tmp
+.cache/
+
+# Conversion scripts
+convert-to-webp.*
+update-image-paths.*
+delete-original-images.*
+conversion-map.json
+*COMPLETE.md
+*SKELETON.md

@@ -24,19 +24,19 @@
     <!-- Project Hero -->
     <section class="project-hero">
         <div class="project-hero-bg">
-            <img src="../assets/images/placeholder-lichfield-hero.jpg" alt="VisitLichfield">
+            <img src="../assets/images/visitLichfield/homepageimage.webp" alt="VisitLichfield">
             <div class="project-hero-overlay"></div>
         </div>
         <div class="project-hero-content">
             <a href="../index.html#work" class="project-hero-back">← BACK TO PROJECTS</a>
             <h1 class="project-hero-title">VISITLICHFIELD</h1>
             <p class="project-hero-subtitle">
-                A comprehensive tourist application bringing Lichfield's rich heritage to visitors through interactive maps, audio guides, and multiple user dashboards.
+                A multi-city tour platform comprised of three interconnected apps: a tourist navigation system with real-time GPS, audio guides, and Gaussian splat 3D models; a driver app for tour management; and an admin panel for comprehensive analytics and user control.
             </p>
             <div class="project-hero-meta">
                 <div class="project-meta-item">
                     <span class="project-meta-label">ROLE</span>
-                    <span class="project-meta-value">Lead Developer</span>
+                    <span class="project-meta-value">Full-Stack Developer</span>
                 </div>
                 <div class="project-meta-item">
                     <span class="project-meta-label">YEAR</span>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="project-meta-item">
                     <span class="project-meta-label">TYPE</span>
-                    <span class="project-meta-value">Tourist App</span>
+                    <span class="project-meta-value">Multi-City Platform</span>
                 </div>
                 <div class="project-meta-item">
                     <span class="project-meta-label">STATUS</span>
@@ -62,55 +62,85 @@
             <h2 class="project-section-title">Overview</h2>
             <div class="project-text">
                 <p>
-                    VisitLichfield is a full-featured tourist application designed to enhance the visitor experience in Lichfield, a historic cathedral city in Staffordshire, England. The app serves multiple user types through three distinct dashboards, each tailored to specific needs.
+                    VisitLichfield is a multi-city tour platform that transforms how tourists experience historic cities. Built as three interconnected applications, the platform handles everything from real-time tourist navigation to driver tour management and comprehensive administrative analytics.
                 </p>
                 <p>
-                    From tourists exploring the city's medieval streets to administrators managing tour content, the platform provides an intuitive interface backed by robust data management and real-time mapping capabilities.
+                    The system scales across multiple cities (currently Lichfield and York), with dynamic API-driven content switching that updates maps, attractions, and tour routes based on the selected city. Each app serves a distinct purpose while maintaining seamless data synchronization through a centralized PHP/MySQL database architecture.
                 </p>
             </div>
         </section>
 
         <!-- Features -->
         <section class="project-section reveal">
-            <h2 class="project-section-title">Key Features</h2>
+            <h2 class="project-section-title">Tourist App Features</h2>
             <div class="project-features">
                 <div class="project-feature">
                     <div class="project-feature-icon">🗺️</div>
-                    <h3 class="project-feature-title">Interactive Maps</h3>
-                    <p class="project-feature-desc">Leaflet-powered mapping with custom markers, routes, and points of interest across Lichfield.</p>
+                    <h3 class="project-feature-title">Real-Time GPS Navigation</h3>
+                    <p class="project-feature-desc">Live location tracking with Leaflet/OpenStreetMap integration. Directions to attractions open native maps apps.</p>
                 </div>
                 <div class="project-feature">
                     <div class="project-feature-icon">🎧</div>
-                    <h3 class="project-feature-title">Audio Tours</h3>
-                    <p class="project-feature-desc">Location-triggered audio guides bringing history to life as visitors explore.</p>
+                    <h3 class="project-feature-title">Interactive Audio Guides</h3>
+                    <p class="project-feature-desc">Click map markers to access AI-generated audio guides (ElevenLabs), transcripts, Gaussian splat 3D models, and photographs.</p>
                 </div>
                 <div class="project-feature">
-                    <div class="project-feature-icon">📊</div>
-                    <h3 class="project-feature-title">3 Dashboards</h3>
-                    <p class="project-feature-desc">Separate interfaces for tourists, content managers, and administrators.</p>
+                    <div class="project-feature-icon">🚌</div>
+                    <h3 class="project-feature-title">Tour Management</h3>
+                    <p class="project-feature-desc">Join guided tours by difficulty/theme/length. 15-minute warning notifications before tour end. Bus location marked on map.</p>
                 </div>
                 <div class="project-feature">
-                    <div class="project-feature-icon">📱</div>
-                    <h3 class="project-feature-title">Mobile-First</h3>
-                    <p class="project-feature-desc">Responsive design optimized for on-the-go exploration.</p>
+                    <div class="project-feature-icon">💬</div>
+                    <h3 class="project-feature-title">WhatsApp Integration</h3>
+                    <p class="project-feature-desc">Direct contact with tour company for questions or if tourists get lost during tours.</p>
                 </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">🏪</div>
+                    <h3 class="project-feature-title">Partner Discounts</h3>
+                    <p class="project-feature-desc">Colored map pins show partner locations. Click to reveal exclusive discount codes for coffee shops and eateries.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">⭐</div>
+                    <h3 class="project-feature-title">Smart Feedback System</h3>
+                    <p class="project-feature-desc">1-3 stars prompts written review. 4-5 stars redirects to Google/Yelp for public reviews.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Driver & Admin Apps -->
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Driver & Admin Apps</h2>
+            <div class="project-text">
+                <p><strong>Bus Driver App:</strong> Drivers create city-specific tours that tourists can join. Switching cities (Lichfield ↔ York) dynamically updates tourist maps via API. Drivers manually control start/end times and can add 15-minute extensions. Real-time tourist check-in counts and profile management (name, password, photo) all handled through PHP database.</p>
+                
+                <p><strong>Admin Panel:</strong> Comprehensive analytics dashboard showing driver statistics (tours completed, average ratings), tour metrics (attendance, feedback comments), and user management. Admins can create role-based accounts, approve driver applications, limit user access, reset passwords, and track feature requests. Built with PHPMyAdmin for robust database control.</p>
             </div>
         </section>
 
 
         <!-- Gallery -->
         <section class="project-section reveal">
-            <h2 class="project-section-title">The Dashboards</h2>
-            <div class="project-gallery">
+            <h2 class="project-section-title">The Three Apps</h2>
+            <div class="project-gallery-three">
                 <div class="project-gallery-item">
-                    <img src="../assets/images/placeholder-lichfield-dashboard-1.jpg" alt="Tourist Dashboard">
+                    <img src="../assets/images/visitLichfield/touristdashboard.webp" alt="Tourist App - Map View">
+                    <p class="gallery-caption">Tourist App</p>
                 </div>
                 <div class="project-gallery-item">
-                    <img src="../assets/images/placeholder-lichfield-dashboard-2.jpg" alt="Content Manager Dashboard">
+                    <img src="../assets/images/visitLichfield/driverdashboard.webp" alt="Driver Dashboard">
+                    <p class="gallery-caption">Driver Dashboard</p>
                 </div>
                 <div class="project-gallery-item">
-                    <img src="../assets/images/placeholder-lichfield-dashboard-3.jpg" alt="Admin Dashboard">
+                    <img src="../assets/images/visitLichfield/admindashboard.webp" alt="Admin Panel">
+                    <p class="gallery-caption">Admin Panel</p>
                 </div>
+            </div>
+            
+            <!-- App Link -->
+            <div class="project-cta" style="text-align: center; margin-top: 60px;">
+                <a href="https://apps.tag-art.co.uk/visitlichfield/" target="_blank" class="contact-btn primary" style="display: inline-flex; align-items: center; gap: 12px;">
+                    LAUNCH TOURIST APP →
+                </a>
             </div>
         </section>
 
@@ -119,15 +149,22 @@
             <h2 class="project-section-title">Technical Stack</h2>
             <div class="project-text">
                 <p>
-                    Built with a modern JavaScript stack, the application leverages Leaflet for mapping, custom audio APIs for the tour guide functionality, and a Node.js backend for data management. The three dashboards share a common design language while providing role-specific functionality.
+                    Built with Claude AI assistance, the platform uses PHP/MySQL for backend database management with PHPMyAdmin for administrative control. Real-time mapping powered by Leaflet and OpenStreetMap, with audio guides generated through ElevenLabs AI. Gaussian splat 3D models captured using drone photogrammetry, providing immersive previews of historic attractions.
+                </p>
+                <p>
+                    The system underwent a comprehensive security audit to identify and close vulnerabilities, ensuring safe handling of user data and tour operations across multiple cities.
                 </p>
             </div>
             <div class="skills-list mt-40">
-                <span class="skill-item">JAVASCRIPT</span>
-                <span class="skill-item">NODE.JS</span>
+                <span class="skill-item">PHP</span>
+                <span class="skill-item">MYSQL</span>
+                <span class="skill-item">PHPMYADMIN</span>
                 <span class="skill-item">LEAFLET</span>
-                <span class="skill-item">WEB AUDIO API</span>
-                <span class="skill-item">RESPONSIVE CSS</span>
+                <span class="skill-item">OPENSTREETMAP</span>
+                <span class="skill-item">ELEVENLABS</span>
+                <span class="skill-item">GAUSSIAN SPLATS</span>
+                <span class="skill-item">DRONE PHOTOGRAMMETRY</span>
+                <span class="skill-item">REST API</span>
             </div>
         </section>
 
@@ -158,8 +195,8 @@
     <!-- Next Project -->
     <section class="next-project">
         <p class="next-project-label">NEXT PROJECT</p>
-        <a href="brixton-windmill.html" class="next-project-link">
-            <h2 class="next-project-title">BRIXTON WINDMILL →</h2>
+        <a href="brixton-splat-tour.html" class="next-project-link">
+            <h2 class="next-project-title">BRIXTON SPLAT TOUR →</h2>
         </a>
     </section>
 

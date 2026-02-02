@@ -65,21 +65,21 @@ if (cursorDot && cursorRing) {
 const photoContainer = document.getElementById('photoContainer');
 
 if (photoContainer) {
-    const rows = 5;
+    const rows = 4;
     const cols = 4;
     const fragments = [];
     
-    // Updated dimensions to match CSS
-    const containerWidth = 320;
-    const containerHeight = 450;
+    // Match CSS dimensions
+    const containerWidth = 500;
+    const containerHeight = 600;
 
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
             const fragment = document.createElement('div');
             fragment.className = 'photo-fragment';
 
-            const w = containerWidth / cols;
-            const h = containerHeight / rows;
+            const w = containerWidth / cols;  // 125px
+            const h = containerHeight / rows; // 150px
 
             fragment.style.width = w + 'px';
             fragment.style.height = h + 'px';
@@ -87,7 +87,7 @@ if (photoContainer) {
             fragment.style.top = (r * h) + 'px';
 
             const img = document.createElement('img');
-            img.src = 'assets/images/me.jpg'; // Use local image
+            img.src = 'assets/images/me.webp';
             img.style.left = (-c * w) + 'px';
             img.style.top = (-r * h) + 'px';
 
@@ -102,13 +102,35 @@ if (photoContainer) {
         }
     }
 
-    document.addEventListener('mousemove', (e) => {
+    // Throttle mousemove with requestAnimationFrame
+    let ticking = false;
+    let lastMouseX = 0;
+    let lastMouseY = 0;
+
+    // Get the projects section to define the interaction boundary
+    const projectsSection = document.querySelector('.projects');
+    const heroSection = document.querySelector('.hero');
+    
+    function updateFragments() {
+        // Check if mouse is within interaction boundary (hero section)
+        const heroRect = heroSection.getBoundingClientRect();
+        const isInBoundary = lastMouseY <= heroRect.bottom;
+        
+        if (!isInBoundary) {
+            // Reset fragments to default position when outside boundary
+            fragments.forEach((frag) => {
+                frag.el.style.transform = 'translate(0px, 0px) rotate(0deg)';
+            });
+            ticking = false;
+            return;
+        }
+
         const rect = photoContainer.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
 
-        const distX = (e.clientX - centerX) / window.innerWidth;
-        const distY = (e.clientY - centerY) / window.innerHeight;
+        const distX = (lastMouseX - centerX) / window.innerWidth;
+        const distY = (lastMouseY - centerY) / window.innerHeight;
 
         fragments.forEach((frag) => {
             const rowOffset = (frag.row - (rows - 1) / 2) * distY * 20;
@@ -117,11 +139,23 @@ if (photoContainer) {
 
             frag.el.style.transform = `translate(${colOffset}px, ${rowOffset}px) rotate(${rotation}deg)`;
         });
+
+        ticking = false;
+    }
+
+    document.addEventListener('mousemove', (e) => {
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
+
+        if (!ticking) {
+            requestAnimationFrame(updateFragments);
+            ticking = true;
+        }
     });
 
-    // Random glitch
+    // Random glitch with reduced frequency
     setInterval(() => {
-        if (Math.random() > 0.8) {
+        if (Math.random() > 0.85) { // Reduced from 0.8 to 0.85
             const randomFrag = fragments[Math.floor(Math.random() * fragments.length)];
             const glitchX = (Math.random() - 0.5) * 20;
             const glitchY = (Math.random() - 0.5) * 15;
@@ -133,7 +167,7 @@ if (photoContainer) {
                 randomFrag.el.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
             }, 50);
         }
-    }, 500);
+    }, 800); // Increased from 500ms to 800ms
 }
 
 
