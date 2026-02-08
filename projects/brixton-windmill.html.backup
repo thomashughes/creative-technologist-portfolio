@@ -64,22 +64,17 @@
         <section class="project-section reveal">
             <h2 class="project-section-title">Production Pipeline</h2>
             <div class="project-text">
-                <p><strong>1. Drone Capture (CAA A2 Certified):</strong> Captured approximately 8 minutes of raw aerial footage using professional drone equipment. As a CAA A2 certified pilot, I obtained proper authorization to fly near this Grade II listed building. Multiple orbital flight paths ensured comprehensive coverage of the windmill's exterior from all angles.</p>
+                <p><strong>1. Drone Capture (CAA A2 Certified):</strong> Aerial footage captured using professional drone equipment with proper authorization to fly near a Grade II listed building. Multiple flight paths ensured comprehensive coverage of the windmill's exterior.</p>
                 
-                <p><strong>2. Video Editing:</strong> Edited the raw 8-minute drone footage in Final Cut Pro, selecting the optimal orbital passes and stabilizing footage for processing.</p>
+                <p><strong>2. Kiri Engine Processing:</strong> Raw drone footage processed into point cloud data, generating the initial 3D representation from hundreds of aerial photographs.</p>
                 
-                <p><strong>3. Video to Gaussian Splat Conversion:</strong> Uploaded the edited video to Kiri Engine, which treats video as a sequence of still frames—essentially turning one continuous shot into hundreds of individual "photographs." Kiri Engine extracts these frames, performs feature matching across sequential images to identify common points, builds a dense point cloud from the matched features, and finally generates a Gaussian splat representation. This process mirrors traditional photogrammetry but starts from video instead of discrete photos, making it efficient for capturing structures from smooth orbital movements.</p>
+                <p><strong>3. SuperSplat Cleanup:</strong> Refined the Gaussian splat in SuperSplat editor, removing noise, optimizing geometry, and preparing the model for web deployment. File size optimization was critical to ensure smooth performance without sacrificing visual quality.</p>
                 
-                <p><strong>4. SuperSplat Cleanup:</strong> Refined the Gaussian splat in SuperSplat editor, removing noise artifacts, optimizing geometry, and preparing the model for web deployment. File size optimization was critical to ensure smooth performance without sacrificing visual quality.</p>
+                <p><strong>4. 3D Vista Pro Assembly:</strong> Combined the cleaned Gaussian splat with ground-level 360° photography in 3D Vista Pro, creating seamless transitions between aerial and ground perspectives.</p>
                 
-                <p><strong>5. Ground-Level 360° Photography:</strong> Captured ground-level perspectives using the Ricoh Theta Z1—a professional 360° camera featuring dual 1-inch back-illuminated sensors (significantly larger than typical smartphone sensors) with twin 180° fisheye lenses. The 1-inch sensor size delivers superior low-light performance and 23-megapixel still resolution, critical for capturing architectural detail in the varied lighting conditions around the windmill.</p>
-                
-                <p><strong>6. 3D Vista Pro Assembly:</strong> Combined the cleaned aerial Gaussian splat with ground-level 360° photography in 3D Vista Pro, creating seamless transitions between bird's-eye aerial views and human-scale ground perspectives.</p>
-                
-                <p><strong>7. Server Deployment:</strong> Optimized assets deployed to web server for public access at tours.tag-art.co.uk.</p>
+                <p><strong>5. Server Deployment:</strong> Optimized assets deployed to web server for public access at tours.tag-art.co.uk.</p>
             </div>
         </section>
-
 
         <section class="project-section reveal">
             <h2 class="project-section-title">Key Features</h2>

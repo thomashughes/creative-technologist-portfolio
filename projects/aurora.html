@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora: Space Weather Sonified — Thomas Hughes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-text" id="cursorText">VIEW</div>
+    <div id="nav-placeholder"></div>
+
+    <section class="project-hero">
+        <div class="project-hero-bg">
+            <img src="../assets/images/aurora/homepageImage.webp" alt="Aurora">
+            <div class="project-hero-overlay"></div>
+        </div>
+        <div class="project-hero-content">
+            <a href="../index.html#work" class="project-hero-back">← BACK TO PROJECTS</a>
+            <h1 class="project-hero-title">AURORA: SPACE WEATHER SONIFIED</h1>
+            <p class="project-hero-subtitle">
+                An immersive 3D audio-visual experience that transforms real NOAA space weather data into a living aurora. Solar wind speed, magnetic field strength, plasma density, and geomagnetic storm indices drive 40,000 shader particles and six-voice generative audio.
+            </p>
+            <div class="project-hero-meta">
+                <div class="project-meta-item">
+                    <span class="project-meta-label">ROLE</span>
+                    <span class="project-meta-value">Creator / Developer</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">YEAR</span>
+                    <span class="project-meta-value">2025</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">TYPE</span>
+                    <span class="project-meta-value">Data Sonification / WebGL</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">STATUS</span>
+                    <span class="project-meta-value text-electric">Live</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="project-body">
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Overview</h2>
+            <div class="project-text">
+                <p>
+                    Aurora is a browser-based experience that takes the last seven days of real space weather measurements from NOAA's deep-space satellites and replays them as light and sound. The Sun constantly bombards Earth with charged particles travelling at hundreds of kilometres per second. When this solar wind hits our magnetic field, it funnels toward the poles and ignites the atmosphere—creating the aurora borealis.
+                </p>
+                <p>
+                    Rather than visualising this data as charts and numbers, Aurora translates each measurement into something you can see and hear. Quiet solar conditions produce gentle green curtains and soft major chords. When a geomagnetic storm hits—when the interplanetary magnetic field turns southward and the solar wind surges—the aurora shifts to deep reds and purples, dissonant harmonies build, sub-bass rumbles, and the entire scene intensifies.
+                </p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <img src="../assets/images/aurora/aurorawelcomescreen.webp" alt="Aurora Welcome Screen" style="width: 100%; border-radius: 8px;">
+                <p class="gallery-caption" style="margin-top: 16px;">Aurora Welcome Screen</p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">How the Data Becomes the Aurora</h2>
+            <div class="project-features">
+                <div class="project-feature">
+                    <div class="project-feature-icon">🌬️</div>
+                    <h3 class="project-feature-title">Solar Wind Speed</h3>
+                    <p class="project-feature-desc">Controls aurora brightness, particle flow speed, and the pitch of a deep FM synthesis drone. Faster wind means a more active, higher-pitched scene.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">🔬</div>
+                    <h3 class="project-feature-title">Plasma Density</h3>
+                    <p class="project-feature-desc">Drives plucked pentatonic notes—more particles per cubic centimetre means more frequent plucks, creating busier melodic textures.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">🧲</div>
+                    <h3 class="project-feature-title">Magnetic Bz</h3>
+                    <p class="project-feature-desc">The most important storm indicator. When Bz turns negative, the aurora shifts from green to red/purple, and harmonics move from major to minor/dissonant intervals.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">⚡</div>
+                    <h3 class="project-feature-title">Magnetic Bt</h3>
+                    <p class="project-feature-desc">Controls magnetic field line distortion and drives filtered pink noise—stronger fields mean brighter, more open noise textures.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">📊</div>
+                    <h3 class="project-feature-title">Kp Index</h3>
+                    <p class="project-feature-desc">Geomagnetic storm index triggers sub-bass rumbles and increases shooting star frequency across the sky.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">☀️</div>
+                    <h3 class="project-feature-title">X-Ray Flux</h3>
+                    <p class="project-feature-desc">Solar flare spikes trigger high bell chimes—brief, bright tones when the Sun produces X-ray bursts.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <img src="../assets/images/aurora/High intensity storm.webp" alt="High Intensity Storm" style="width: 100%; border-radius: 8px;">
+                <p class="gallery-caption" style="margin-top: 16px;">High-Intensity Geomagnetic Storm</p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Visual System</h2>
+            <div class="project-text">
+                <p>
+                    The 3D scene is built entirely in Three.js with custom GLSL vertex and fragment shaders. 40,000 aurora particles are arranged in six vertical curtain bands, each with individual phase offsets creating the characteristic columnar ray structure of real aurora.
+                </p>
+                <p>
+                    Post-processing uses a ping-pong render target system for particle trails—each frame blends with a faded version of the previous frame, creating soft luminous trails. This feeds into a bloom pass for the characteristic aurora glow.
+                </p>
+                <p>
+                    The scene includes 6,000 solar wind stream particles, 10 dynamic magnetic field lines that flex with field strength, layered starfields across three depth planes, and shooting stars that spawn more frequently during storms.
+                </p>
+                <p>
+                    Five camera presets: orbital (with mouse parallax), ISS view, ground level looking up, polar top-down, and cinematic sweep.
+                </p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <img src="../assets/images/aurora/groundView.webp" alt="Ground View" style="width: 100%; border-radius: 8px;">
+                <p class="gallery-caption" style="margin-top: 16px;">Ground-Level Camera View</p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Sonification Engine</h2>
+            <div class="project-text">
+                <p>
+                    The audio engine is built with Tone.js, running six simultaneous voices: FM synthesis drone tracking solar wind speed, polyphonic pad shifting from major to minor chords with Bz, pluck synth driven by plasma density, pink noise filtered by magnetic field strength, bell synth triggered by X-ray flux, and membrane synth for sub-bass during high Kp activity.
+                </p>
+                <p>
+                    A breathing LFO modulates master gain, scaling with storm activity. The result is a continuously evolving ambient soundscape responding to the same data driving the visuals.
+                </p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Live Data Pipeline</h2>
+            <div class="project-text">
+                <p>
+                    On load, the app fetches four NOAA SWPC JSON endpoints covering the previous seven days, parsed into a unified timeline of roughly 5,000 data points.
+                </p>
+                <p>
+                    Timeline playback at ~2 seconds per data point with smooth interpolation. A scrubber bar shows day markers and allows jumping to any point in the week. When the timeline ends, it auto-fetches fresh data—always reflecting the most recent week.
+                </p>
+                <p>
+                    If NOAA endpoints are unavailable, the app falls back to procedurally generated data with realistic storm events.
+                </p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <img src="../assets/images/aurora/dateandtimescrubber.webp" alt="Timeline Scrubber" style="width: 100%; border-radius: 8px;">
+                <p class="gallery-caption" style="margin-top: 16px;">Interactive 7-Day Timeline Scrubber</p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <div class="project-cta" style="text-align: center; margin-top: 20px;">
+                <a href="https://apps.tag-art.co.uk/aurora" target="_blank" class="contact-btn primary" style="display: inline-flex; align-items: center; gap: 12px; padding: 20px 40px;">
+                    LAUNCH AURORA →
+                </a>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Technical Stack</h2>
+            <div class="skills-list mt-40">
+                <span class="skill-item">THREE.JS</span>
+                <span class="skill-item">GLSL SHADERS</span>
+                <span class="skill-item">TONE.JS</span>
+                <span class="skill-item">NOAA SWPC API</span>
+                <span class="skill-item">WEBGL</span>
+                <span class="skill-item">POST-PROCESSING</span>
+                <span class="skill-item">FM SYNTHESIS</span>
+                <span class="skill-item">REACT</span>
+                <span class="skill-item">JAVASCRIPT</span>
+                <span class="skill-item">REAL-TIME DATA</span>
+            </div>
+        </section>
+    </main>
+
+    <section class="next-project">
+        <p class="next-project-label">NEXT PROJECT</p>
+        <a href="brixton-splat-tour.html" class="next-project-link">
+            <h2 class="next-project-title">BRIXTON SPLAT TOUR →</h2>
+        </a>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="../js/components.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -41,74 +41,117 @@
     </section>
 
     <main class="project-body">
+    <main class="project-body">
         <section class="project-section reveal">
-            <h2 class="project-section-title">About This Collection</h2>
+            <h2 class="project-section-title">Overview</h2>
             <div class="project-text">
                 <p>
-                    This gallery showcases my ongoing work in spatial capture — from small objects scanned with photogrammetry to large-scale environments captured as Gaussian splats. Each piece tells a story of place, form, and the technology used to preserve it.
+                    A collection of 3D spatial captures showcasing different photogrammetry and Gaussian splatting techniques. From CAA-approved drone flights around London landmarks to studio-based ultra-high-poly object scanning, these captures demonstrate professional workflows for heritage documentation, product visualization, and environmental scanning.
                 </p>
             </div>
         </section>
 
+        <!-- Tower Bridge -->
         <section class="project-section reveal">
-            <h2 class="project-section-title">Featured Captures</h2>
-            
-            <!-- Tower Bridge - Gaussian Splat -->
-            <h3 style="font-family: 'Syne', sans-serif; font-size: 24px; margin: 40px 0 20px;">Tower Bridge — Gaussian Splat</h3>
-            <div class="project-embed">
-                <!-- PASTE YOUR TOWER BRIDGE EMBED CODE HERE -->
-                <!-- Replace this entire div content with your iframe/embed code -->
-                <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: var(--cream); opacity: 0.5;">
-                    Tower Bridge Gaussian Splat Embed — Paste embed code here
+            <h2 class="project-section-title">Tower Bridge (Aerial Gaussian Splat)</h2>
+            <div class="project-text">
+                <p>
+                    One of my favourite captures. Flying around Tower Bridge required comprehensive pre-flight authorization—submitting detailed flight plans to the CAA including flight path, timing, and full risk assessment. I registered the flight on DroneDeploy so other pilots could see active operations in the area. On the day of the flight, I contacted the City of London Police to obtain a flight number and confirm the operation. I then flew a complete orbit around Tower Bridge, capturing the iconic structure from every angle before landing.
+                </p>
+                <p>
+                    The result is a complete 3D Gaussian splat representation of one of London's most recognizable landmarks, captured with full regulatory compliance and professional drone operation standards.
+                </p>
+            </div>
+            <div class="embed-container" style="width: 100%; aspect-ratio: 16/9; max-width: 1200px; margin: 40px auto; position: relative;">
+                <div class="embed-placeholder" onclick="loadEmbed(this, 'tower-bridge')" style="cursor: pointer; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; border: 2px solid rgba(255,255,255,0.1); height: 100%;">
+                    <div style="text-align: center; color: #f8f7f4;">
+                        <div style="font-size: 48px; margin-bottom: 20px;">▶</div>
+                        <div style="font-size: 18px; font-weight: 600;">Click to Load 3D Model</div>
+                        <div style="font-size: 14px; opacity: 0.7; margin-top: 8px;">Tower Bridge Gaussian Splat</div>
+                    </div>
+                </div>
+                <div class="embed-content" style="display: none; height: 100%;" data-embed-id="tower-bridge">
+                    <iframe title="Tower Bridge" src="https://www.kiriengine.app/share/3dgsEmbed/1947360060405448704?userId=1394259&type=0&bg_theme=bright&auto_spin=1" frameborder="0" allowfullscreen mozallowfullscreen webkitallowfullscreen allow="autoplay; fullscreen;" execution-while-out-of-viewport execution-while-not-rendered style="width:100%;height:100%;border-radius:8px;"></iframe>
                 </div>
             </div>
-            <p class="project-text mt-20">A Gaussian splat capture of London's iconic Tower Bridge. Captured using [describe your process] and processed for web-optimised viewing.</p>
+        </section>
 
-            <!-- Embed 2 -->
-            <h3 style="font-family: 'Syne', sans-serif; font-size: 24px; margin: 60px 0 20px;">Brixton Windmill — Photogrammetry</h3>
-            <div class="project-embed">
-                <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: var(--cream); opacity: 0.5;">
-                    SketchFab / Potree Embed Placeholder
+        <!-- Mask -->
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Mask (Ultra High-Poly Photogrammetry)</h2>
+            <div class="project-text">
+                <p>
+                    This mask capture demonstrates high-fidelity studio photogrammetry. Using a DSLR camera in a controlled home studio environment with professional lighting, I captured over 500 photographs from different angles as the mask rotated on a turntable. Each photo was color-corrected and distortion-corrected in Lightroom before processing.
+                </p>
+                <p>
+                    The images were processed in Metashape Pro to generate an ultra-high-poly mesh and 8K texture maps. Final cleanup and optimization occurred in Blender, where I applied Draco compression to maintain visual fidelity while dramatically reducing file size for web deployment.
+                </p>
+            </div>
+            <div class="embed-container" style="width: 100%; aspect-ratio: 16/9; max-width: 1200px; margin: 40px auto; position: relative;">
+                <div class="embed-placeholder" onclick="loadEmbed(this, 'mask')" style="cursor: pointer; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.9); border-radius: 8px; border: 2px solid rgba(255,255,255,0.1); height: 100%;">
+                    <div style="text-align: center; color: #f8f7f4;">
+                        <div style="font-size: 48px; margin-bottom: 20px;">▶</div>
+                        <div style="font-size: 18px; font-weight: 600;">Click to Load 3D Model</div>
+                        <div style="font-size: 14px; opacity: 0.7; margin-top: 8px;">Ultra High-Poly 8K Mask</div>
+                    </div>
+                </div>
+                <div class="embed-content" style="display: none; height: 100%;" data-embed-id="mask">
+                    <iframe title="Mask" src="https://www.kiriengine.app/share/embed/069dddb3d0474fd7bf8a890db633c52b?userId=1394259&bg_theme=dark" frameborder="0" allowfullscreen mozallowfullscreen webkitallowfullscreen allow="autoplay; fullscreen;" execution-while-out-of-viewport execution-while-not-rendered style="width:100%;height:100%;border-radius:8px;"></iframe>
                 </div>
             </div>
-            <p class="project-text mt-20">Heritage documentation of the Grade II listed Brixton Windmill using photogrammetry. Museum-quality 3D capture for public engagement and preservation.</p>
+        </section>
 
-            <!-- Embed 3 -->
-            <h3 style="font-family: 'Syne', sans-serif; font-size: 24px; margin: 60px 0 20px;">Additional Capture</h3>
-            <div class="project-embed">
-                <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: var(--cream); opacity: 0.5;">
-                    SketchFab / Potree Embed Placeholder
+        <!-- Ilford Mansion -->
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Ilford Mansion (Valentine's Park)</h2>
+            <div class="project-text">
+                <p>
+                    Ilford Mansion in Valentine's Park captured via drone Gaussian splatting. This heritage building required CAA-approved flight operations similar to the Tower Bridge capture, though police notification wasn't required for this location. Multiple orbital passes ensured complete coverage of the mansion's architecture and surrounding grounds.
+                </p>
+                <p>
+                    The resulting Gaussian splat preserves the historic structure in 3D, allowing virtual exploration from perspectives impossible to achieve on foot.
+                </p>
+            </div>
+            <div class="embed-container" style="width: 100%; aspect-ratio: 16/9; max-width: 1200px; margin: 40px auto; position: relative;">
+                <div class="embed-placeholder" onclick="loadEmbed(this, 'ilford')" style="cursor: pointer; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.02); border-radius: 8px; border: 2px solid rgba(255,255,255,0.1); height: 100%;">
+                    <div style="text-align: center; color: #f8f7f4;">
+                        <div style="font-size: 48px; margin-bottom: 20px;">▶</div>
+                        <div style="font-size: 18px; font-weight: 600;">Click to Load 3D Model</div>
+                        <div style="font-size: 14px; opacity: 0.7; margin-top: 8px;">Ilford Mansion Gaussian Splat</div>
+                    </div>
+                </div>
+                <div class="embed-content" style="display: none; height: 100%;" data-embed-id="ilford">
+                    <iframe title="Ilford Mansion" src="https://www.kiriengine.app/share/3dgsEmbed/1957770629167972352?userId=1394259&type=0&bg_theme=transparent&auto_spin=0" frameborder="0" allowfullscreen mozallowfullscreen webkitallowfullscreen allow="autoplay; fullscreen;" execution-while-out-of-viewport execution-while-not-rendered style="width:100%;height:100%;border-radius:8px;"></iframe>
                 </div>
             </div>
-            <p class="project-text mt-20">Description of this capture.</p>
         </section>
 
         <section class="project-section reveal">
-            <h2 class="project-section-title">Techniques</h2>
-            <div class="project-features">
-                <div class="project-feature">
-                    <div class="project-feature-icon">📸</div>
-                    <h3 class="project-feature-title">Photogrammetry</h3>
-                    <p class="project-feature-desc">Creating 3D models from overlapping photographs.</p>
-                </div>
-                <div class="project-feature">
-                    <div class="project-feature-icon">💫</div>
-                    <h3 class="project-feature-title">Gaussian Splatting</h3>
-                    <p class="project-feature-desc">Neural radiance fields for volumetric scene capture.</p>
-                </div>
-                <div class="project-feature">
-                    <div class="project-feature-icon">🚁</div>
-                    <h3 class="project-feature-title">Drone Capture</h3>
-                    <p class="project-feature-desc">Aerial photography for large-scale environment capture.</p>
-                </div>
-                <div class="project-feature">
-                    <div class="project-feature-icon">🏛️</div>
-                    <h3 class="project-feature-title">Heritage Documentation</h3>
-                    <p class="project-feature-desc">Preserving historical sites in digital form.</p>
-                </div>
+            <h2 class="project-section-title">Technical Stack</h2>
+            <div class="skills-list">
+                <span class="skill-item">DRONE (CAA A2)</span>
+                <span class="skill-item">GAUSSIAN SPLATTING</span>
+                <span class="skill-item">PHOTOGRAMMETRY</span>
+                <span class="skill-item">DSLR</span>
+                <span class="skill-item">METASHAPE PRO</span>
+                <span class="skill-item">BLENDER</span>
+                <span class="skill-item">DRACO COMPRESSION</span>
+                <span class="skill-item">KIRI ENGINE</span>
+                <span class="skill-item">LIGHTROOM</span>
+                <span class="skill-item">CAA COMPLIANCE</span>
             </div>
         </section>
     </main>
+
+    <script>
+        function loadEmbed(placeholder, embedId) {
+            const container = placeholder.parentElement;
+            const content = container.querySelector(`[data-embed-id="${embedId}"]`);
+            placeholder.style.display = 'none';
+            content.style.display = 'block';
+        }
+    </script>
+</main>
 
     <section class="next-project">
         <p class="next-project-label">EXPLORE MORE</p>

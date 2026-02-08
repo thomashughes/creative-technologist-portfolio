@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Visualization — Thomas Hughes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-text" id="cursorText">VIEW</div>
+    <div id="nav-placeholder"></div>
+
+    <section class="project-hero">
+        <div class="project-hero-bg">
+            <img src="../assets/images/3dshoeviewer/homepage.webp" alt="Product Visualization">
+            <div class="project-hero-overlay"></div>
+        </div>
+        <div class="project-hero-content">
+            <a href="../index.html#work" class="project-hero-back">← BACK TO PROJECTS</a>
+            <h1 class="project-hero-title">PRODUCT VISUALIZATION</h1>
+            <p class="project-hero-subtitle">
+                Professional photogrammetry workflow for e-commerce. Studio-captured 3D models with Draco compression deployed as interactive web viewers styled to match each product's aesthetic.
+            </p>
+            <div class="project-hero-meta">
+                <div class="project-meta-item">
+                    <span class="project-meta-label">ROLE</span>
+                    <span class="project-meta-value">Creator / Developer</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">YEAR</span>
+                    <span class="project-meta-value">2024-2025</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">TYPE</span>
+                    <span class="project-meta-value">E-Commerce 3D</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">STATUS</span>
+                    <span class="project-meta-value text-electric">Live</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="project-body">
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Overview</h2>
+            <div class="project-text">
+                <p>
+                    Complete photogrammetry-to-web pipeline for e-commerce product visualization. Both models captured in controlled home studio using DSLR equipment, studio lighting, and motorized turntable. The workflow prioritizes high fidelity while maintaining web performance through aggressive optimization.
+                </p>
+                <p>
+                    Rather than generic 3D viewers, I built custom mock e-commerce websites for each product—collaborating with Claude AI to design interfaces matching each product's aesthetic. Shoe viewer: sleek modern design. Clay bowl: handcrafted artisanal styling. Both self-hosted, demonstrating how 3D product visualization can be tailored to brand identity.
+                </p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Capture & Processing Workflow</h2>
+            <div class="project-text">
+                <p><strong>1. Studio Photography:</strong> Hundreds of photographs per product using DSLR on tripod, shooting each object on motorized turntable under controlled studio lighting. Multiple passes at different heights ensured complete coverage.</p>
+                
+                <p><strong>2. Lightroom Processing:</strong> Batch color correction and lens distortion correction applied to all images for consistent exposure and optical aberration elimination.</p>
+                
+                <p><strong>3. Metashape Pro Reconstruction:</strong> Imported corrected image sets into Agisoft Metashape Pro. Software performed feature matching, built dense point clouds, generated high-poly meshes, and baked texture maps. Result: photorealistic 3D models with millions of polygons and 4K+ texture resolution.</p>
+                
+                <p><strong>4. Blender Cleanup:</strong> Imported models into Blender for final optimization. Removed stray geometry, retopologized high-density areas, optimized UV layouts, prepared for web deployment.</p>
+                
+                <p><strong>5. Draco Compression:</strong> Applied Draco geometry compression achieving ~90% file size reduction while maintaining visual fidelity. Critical for web delivery—uncompressed models would be prohibitively large.</p>
+                
+                <p><strong>6. Web Viewer Development:</strong> Built custom interactive 3D viewers using Three.js, with UI design iterated collaboratively with Claude AI. Each site's styling reflects its product.</p>
+                
+                <p><strong>7. Self-Hosting:</strong> Deployed both experiences on self-hosted infrastructure, demonstrating full ownership of the 3D pipeline from capture through delivery.</p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Interactive 3D Model</h2>
+            <div class="project-text mb-40">
+                <p>
+                    Explore the captured model below. Rotate with mouse/touch, zoom with scroll/pinch. Demonstrates photogrammetry quality achievable with consumer DSLR and proper technique.
+                </p>
+            </div>
+            <div style="width: 100%; aspect-ratio: 1/1; max-width: 800px; margin: 0 auto;">
+                <iframe title="Product 3D Model" src="https://www.kiriengine.app/share/embed/ef386c7b7410425084b2b899c5b44e3b?userId=1394259&bg_theme=bright&auto_spin_model=1&camera_position=%7B%22x%22%3A%22-0.40777%22%2C%22y%22%3A%220.73844%22%2C%22z%22%3A%22-0.17644%22%7D&controls_target=%7B%22x%22%3A%220.00000%22%2C%22y%22%3A%220.00000%22%2C%22z%22%3A%220.00000%22%7D" frameborder="0" allowfullscreen mozallowfullscreen webkitallowfullscreen allow="autoplay; fullscreen;" execution-while-out-of-viewport execution-while-not-rendered style="width:100%;height:100%;border-radius:8px;"></iframe>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">E-Commerce Integration</h2>
+            <div class="project-text">
+                <p>
+                    The final deliverables aren't just 3D models—they're complete product presentation experiences. Each mock e-commerce site demonstrates how photogrammetry can integrate into online retail, allowing customers to examine products from every angle.
+                </p>
+                <p>
+                    Design process involved multiple iterations with Claude AI, refining typography, color schemes, layout, and interaction patterns. This collaborative approach shows how AI tools can accelerate design iteration while maintaining creative direction.
+                </p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Product Viewers</h2>
+            <div class="project-gallery" style="grid-template-columns: 1fr 1fr; gap: 24px;">
+                <div class="project-gallery-item">
+                    <img src="../assets/images/3dshoeviewer/homepage.webp" alt="Shoe Viewer">
+                    <p class="gallery-caption">Modern Minimalist Shoe Viewer</p>
+                </div>
+                <div class="project-gallery-item">
+                    <img src="../assets/images/claybowl/homepage1.webp" alt="Clay Bowl Viewer">
+                    <p class="gallery-caption">Artisanal Clay Bowl Experience</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Technical Stack</h2>
+            <div class="skills-list mt-40">
+                <span class="skill-item">PHOTOGRAMMETRY</span>
+                <span class="skill-item">DSLR PHOTOGRAPHY</span>
+                <span class="skill-item">STUDIO LIGHTING</span>
+                <span class="skill-item">LIGHTROOM</span>
+                <span class="skill-item">METASHAPE PRO</span>
+                <span class="skill-item">BLENDER</span>
+                <span class="skill-item">DRACO COMPRESSION</span>
+                <span class="skill-item">THREE.JS</span>
+                <span class="skill-item">WEB 3D</span>
+                <span class="skill-item">CLAUDE AI</span>
+            </div>
+        </section>
+    </main>
+
+    <section class="next-project">
+        <p class="next-project-label">NEXT PROJECT</p>
+        <a href="spatial-captures.html" class="next-project-link">
+            <h2 class="next-project-title">SPATIAL CAPTURES →</h2>
+        </a>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="../js/components.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
