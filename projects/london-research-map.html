@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+
+    <title>London Historical Research Map — Thomas Hughes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-text" id="cursorText">VIEW</div>
+    <div id="nav-placeholder"></div>
+
+    <section class="project-hero">
+        <div class="project-hero-bg">
+            <img src="../assets/images/london-research-map/map A current map of london.png" alt="London Historical Research Map">
+            <div class="project-hero-overlay"></div>
+        </div>
+        <div class="project-hero-content">
+            <a href="../index.html#work" class="project-hero-back">← BACK TO PROJECTS</a>
+            <h1 class="project-hero-title">LONDON HISTORICAL RESEARCH MAP</h1>
+            <p class="project-hero-subtitle">
+                Interactive Leaflet.js research tool scoring 17 London locations by historical significance using an algorithmic hotspot model. NLS and MapTiler historic map tile overlays, foreshore access mapping, and location-specific research notes.
+            </p>
+            <div class="project-hero-meta">
+                <div class="project-meta-item">
+                    <span class="project-meta-label">ROLE</span>
+                    <span class="project-meta-value">Creator / Developer</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">YEAR</span>
+                    <span class="project-meta-value">2025</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">TYPE</span>
+                    <span class="project-meta-value">Data Visualisation / Research Tool</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">STATUS</span>
+                    <span class="project-meta-value text-electric">Live</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="project-body">
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">What I Built</h2>
+            <div class="project-text">
+                <p>
+                    A data-driven research map for historical fieldwork on the Thames foreshore and surrounding London locations. The map visualises 17 sites, each scored algorithmically for research potential based on a weighted combination of historical significance, accessibility, documented finds from comparable sites, and tidal access windows.
+                </p>
+                <p>
+                    The key feature is the historic map overlay system: toggle between modern OpenStreetMap tiles and georeferenced historic OS maps sourced from the National Library of Scotland (NLS) via MapTiler. Seeing a location on an 1890s map alongside the modern street layout makes it immediately obvious which areas have changed and which remain archaeologically undisturbed.
+                </p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">The Hotspot Scoring Algorithm</h2>
+            <div class="project-text">
+                <p>
+                    Each location is scored across four weighted dimensions and combined into a composite hotspot score displayed as a colour gradient on the map: green (low interest) through amber to red (high priority).
+                </p>
+            </div>
+            <div class="arch-diagram">
+<span class="neutral">Hotspot Score = weighted sum of:</span>
+
+<span class="highlight">historical_significance</span>  <span class="dim">× 0.35</span>  <span class="neutral">← documented history, proximity to medieval/Tudor sites</span>
+<span class="highlight">comparable_finds</span>         <span class="dim">× 0.30</span>  <span class="neutral">← reported finds from similar nearby locations</span>
+<span class="highlight">accessibility_score</span>      <span class="dim">× 0.20</span>  <span class="neutral">← foreshore access, tidal window, public land</span>
+<span class="highlight">disturbance_index</span>        <span class="dim">× 0.15</span>  <span class="neutral">← inverse: high development = lower score</span>
+
+<span class="neutral">Output: 0.0 – 1.0 normalised score per location</span>
+<span class="neutral">Rendered as: colour-coded circle markers scaled by score</span>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">The Map</h2>
+            <div class="project-gallery" style="grid-template-columns: 1fr 1fr; gap: 24px;">
+                <div class="project-gallery-item">
+                    <img src="../assets/images/london-research-map/map A current map of london.png" alt="Modern Map of London">
+                    <p class="gallery-caption">Modern Map View with Scored Locations</p>
+                </div>
+                <div class="project-gallery-item">
+                    <img src="../assets/images/london-research-map/map B api map showing 1890s mao of london.png" alt="1890s Historic Map Overlay">
+                    <p class="gallery-caption">1890s Historic OS Map Overlay via NLS/MapTiler</p>
+                </div>
+            </div>
+            <div class="project-gallery" style="grid-template-columns: 2fr 1fr; gap: 24px; margin-top: 24px;">
+                <div class="project-gallery-item">
+                    <img src="../assets/images/london-research-map/showing tower of london foreshore open tab and what was found.png" alt="Tower of London Foreshore Research Notes">
+                    <p class="gallery-caption">Tower of London Foreshore — Research Notes and Finds</p>
+                </div>
+                <div class="project-gallery-item">
+                    <img src="../assets/images/london-research-map/research methodology.png" alt="Research Methodology">
+                    <p class="gallery-caption">Research Methodology</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Key Features</h2>
+            <div class="project-features">
+                <div class="project-feature">
+                    <div class="project-feature-icon">🗺️</div>
+                    <h3 class="project-feature-title">Historic Map Overlays</h3>
+                    <p class="project-feature-desc">Toggle between modern OSM tiles and georeferenced historic OS maps (1890s–1930s) via NLS/MapTiler tile endpoints. Opacity slider blends historic and modern layers. Useful for identifying which modern structures overlie historically significant ground.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">📍</div>
+                    <h3 class="project-feature-title">Scored Location Markers</h3>
+                    <p class="project-feature-desc">17 locations rendered as circle markers. Colour and radius both encode the hotspot score — high-scoring locations are larger and deeper red. Click any marker to open a popup with the score breakdown, research notes, and access information.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">🌊</div>
+                    <h3 class="project-feature-title">Foreshore Access Mapping</h3>
+                    <p class="project-feature-desc">Thames foreshore locations include tidal access data: which areas are accessible at low tide, required permits, and the approximate accessible window relative to tide times. Drawn as a separate layer that can be toggled independently.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">📝</div>
+                    <h3 class="project-feature-title">Research Notes</h3>
+                    <p class="project-feature-desc">Each location has structured research notes: historical context, documented finds from the area, relevant archive references, and fieldwork observations. Stored as JSON and rendered in the popup. Designed to be updated as fieldwork progresses.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Tech Stack</h2>
+            <div class="skills-list mt-40">
+                <span class="skill-item">LEAFLET.JS</span>
+                <span class="skill-item">MAPTILER API</span>
+                <span class="skill-item">NLS HISTORIC MAPS</span>
+                <span class="skill-item">OPENSTREETMAP</span>
+                <span class="skill-item">VANILLA JS</span>
+                <span class="skill-item">GEOJSON</span>
+                <span class="skill-item">ALGORITHMIC SCORING</span>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="next-project">
+        <p class="next-project-label">BACK TO START</p>
+        <a href="macro-tracker.html" class="next-project-link">
+            <h2 class="next-project-title">MACRO TRACKER →</h2>
+        </a>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="../js/components.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

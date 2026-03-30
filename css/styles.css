@@ -571,14 +571,14 @@ img {
 
 .project-card.card-tall {
     grid-column: span 5;
-    grid-row: span 5;
+    grid-row: span 4;
     background: var(--electric);
     color: var(--void);
 }
 
 .project-card.card-wide {
     grid-column: span 7;
-    grid-row: span 3;
+    grid-row: span 4;
     background: var(--acid);
     color: var(--void);
 }
@@ -770,7 +770,7 @@ img {
 /* ABOUT SECTION       */
 /* =================== */
 .about {
-    padding: 160px 60px;
+    padding: 80px 60px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 100px;
@@ -779,6 +779,9 @@ img {
 
 .about-left {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .about-photo-wrapper {
@@ -1602,4 +1605,110 @@ img {
 .mb-20 { margin-bottom: 20px; }
 .mb-40 { margin-bottom: 40px; }
 .mb-60 { margin-bottom: 60px; }
+
+/* =================== */
+/* PROJECT PLACEHOLDERS*/
+/* =================== */
+.project-placeholder {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: unset;
+    filter: none;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.project-card:hover .project-placeholder {
+    transform: scale(1.05);
+    filter: none;
+}
+
+.placeholder-macro {
+    background: linear-gradient(135deg, #0a1a0a 0%, #0d3320 40%, #1a4a1a 70%, #0f2a15 100%);
+}
+
+.placeholder-briefcraft {
+    background: linear-gradient(135deg, #0d0a1a 0%, #1a0d3a 40%, #2d1b6e 70%, #1a0d3a 100%);
+}
+
+.placeholder-memories {
+    background: linear-gradient(135deg, #1a0d00 0%, #3a1a00 40%, #5a2a00 70%, #2a1000 100%);
+}
+
+.placeholder-body {
+    background: linear-gradient(135deg, #001a1a 0%, #003a3a 40%, #004a4a 70%, #001f1f 100%);
+}
+
+.placeholder-map {
+    background: linear-gradient(135deg, #000d1a 0%, #001a3a 40%, #002a5a 70%, #000d2a 100%);
+}
+
+/* Architecture diagram styles for project pages */
+.arch-diagram {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(245,240,232,0.1);
+    border-radius: 4px;
+    padding: 40px;
+    margin: 40px 0;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    line-height: 2;
+    color: var(--electric);
+    overflow-x: auto;
+    white-space: pre;
+}
+
+.arch-diagram .dim {
+    color: rgba(245,240,232,0.3);
+}
+
+.arch-diagram .highlight {
+    color: var(--hot);
+}
+
+.arch-diagram .neutral {
+    color: var(--cream);
+    opacity: 0.7;
+}
+
+/* Code snippet styles */
+.code-snippet {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(245,240,232,0.1);
+    border-left: 3px solid var(--electric);
+    border-radius: 4px;
+    padding: 24px 32px;
+    margin: 24px 0;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    line-height: 1.8;
+    overflow-x: auto;
+    color: rgba(245,240,232,0.8);
+    white-space: pre;
+}
+
+/* Failure/debug callout */
+.callout {
+    border: 1px solid var(--hot);
+    border-left: 4px solid var(--hot);
+    padding: 24px 32px;
+    margin: 32px 0;
+    background: rgba(255,16,240,0.05);
+}
+
+.callout-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--hot);
+    margin-bottom: 12px;
+}
+
+.callout p {
+    font-size: 14px;
+    line-height: 1.8;
+    opacity: 0.85;
+}
 

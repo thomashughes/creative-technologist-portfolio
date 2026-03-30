@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+
+    <title>Body-Reactive Visualiser — Thomas Hughes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-text" id="cursorText">VIEW</div>
+    <div id="nav-placeholder"></div>
+
+    <section class="project-hero">
+        <div class="project-hero-bg" style="background: linear-gradient(135deg, #001a1a 0%, #003a3a 50%, #004a4a 100%);">
+            <div class="project-hero-overlay"></div>
+        </div>
+        <div class="project-hero-content">
+            <a href="../index.html#work" class="project-hero-back">← BACK TO PROJECTS</a>
+            <h1 class="project-hero-title">BODY-REACTIVE VISUALISER</h1>
+            <p class="project-hero-subtitle">
+                MediaPipe pose tracking driving a Three.js WebGL particle system in real-time. Gold particle outlines trace detected body joints and connections. Gesture-based mode switching via finger count detection — hold up three fingers to change the visual mode.
+            </p>
+            <div class="project-hero-meta">
+                <div class="project-meta-item">
+                    <span class="project-meta-label">ROLE</span>
+                    <span class="project-meta-value">Creator / Developer</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">YEAR</span>
+                    <span class="project-meta-value">2025</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">TYPE</span>
+                    <span class="project-meta-value">WebGL / Computer Vision</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">STATUS</span>
+                    <span class="project-meta-value text-electric">Live</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="project-body">
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">What I Built</h2>
+            <div class="project-text">
+                <p>
+                    A browser-based experience that uses your webcam as input and renders a real-time particle visualisation of your body in a Three.js WebGL scene. MediaPipe Pose runs in the browser, detecting 33 body landmarks at up to 30fps. Those landmark positions drive a gold particle system: particles cluster around joints and trace the skeletal connections, creating a luminous outline that mirrors your movement.
+                </p>
+                <p>
+                    The interface is entirely gestural: no buttons, no clicks. The number of fingers you hold up in front of the camera switches between visual modes. Three fingers triggers one mode, five triggers another. The detection runs through MediaPipe Hands in parallel with Pose.
+                </p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">How It Works</h2>
+            <div class="project-features">
+                <div class="project-feature">
+                    <div class="project-feature-icon">👁️</div>
+                    <h3 class="project-feature-title">MediaPipe Pose</h3>
+                    <p class="project-feature-desc">33 body landmarks detected per frame: shoulders, elbows, wrists, hips, knees, ankles, and facial points. Each landmark has an x/y/z coordinate and a visibility score. Low-visibility landmarks are faded in the particle output rather than hidden abruptly.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">✨</div>
+                    <h3 class="project-feature-title">Gold Particle System</h3>
+                    <p class="project-feature-desc">Each landmark spawns a cluster of particles in Three.js. The skeletal connections between landmarks are rendered as particle trails. Custom GLSL fragment shader gives the particles their warm gold colour with a soft bloom falloff. The whole system updates every frame from the pose data.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">🤏</div>
+                    <h3 class="project-feature-title">Gesture Mode Switching</h3>
+                    <p class="project-feature-desc">MediaPipe Hands runs alongside Pose, counting extended fingers on the detected hand. A debounced gesture recogniser converts finger counts into mode change events. The visual mode switches without any UI interaction — hold up three fingers, hold for half a second, mode changes.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">⚡</div>
+                    <h3 class="project-feature-title">Real-Time Performance</h3>
+                    <p class="project-feature-desc">Both MediaPipe models run client-side via WebAssembly. The render loop uses requestAnimationFrame. Pose inference and Three.js rendering run on separate ticks to avoid blocking the main thread during heavy frames.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Tech Stack</h2>
+            <div class="skills-list mt-40">
+                <span class="skill-item">MEDIAPIPE POSE</span>
+                <span class="skill-item">MEDIAPIPE HANDS</span>
+                <span class="skill-item">THREE.JS</span>
+                <span class="skill-item">WEBGL</span>
+                <span class="skill-item">GLSL</span>
+                <span class="skill-item">WEBASSEMBLY</span>
+                <span class="skill-item">JAVASCRIPT</span>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <div class="project-cta" style="text-align: center; margin-top: 20px;">
+                <a href="https://apps.tag-art.co.uk/body-reactive" target="_blank" class="contact-btn primary" style="display: inline-flex; align-items: center; gap: 12px;">
+                    LAUNCH EXPERIENCE →
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="next-project">
+        <p class="next-project-label">NEXT PROJECT</p>
+        <a href="london-research-map.html" class="next-project-link">
+            <h2 class="next-project-title">LONDON RESEARCH MAP →</h2>
+        </a>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="../js/components.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

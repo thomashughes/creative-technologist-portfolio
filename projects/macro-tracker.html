@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+
+    <title>Macro Tracker — Thomas Hughes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-text" id="cursorText">VIEW</div>
+    <div id="nav-placeholder"></div>
+
+    <section class="project-hero">
+        <div class="project-hero-bg">
+            <img src="../assets/images/macro-tracker/homepage showing today tab.png" alt="Macro Tracker">
+            <div class="project-hero-overlay"></div>
+        </div>
+        <div class="project-hero-content">
+            <a href="../index.html#work" class="project-hero-back">← BACK TO PROJECTS</a>
+            <h1 class="project-hero-title">MACRO TRACKER</h1>
+            <p class="project-hero-subtitle">
+                Daily-use nutrition PWA. Type meals in natural language, Claude Sonnet parses them into structured macro data. Batch cook system, receipt OCR, AI meal suggestions scored against remaining daily targets. 90+ consecutive days of personal use.
+            </p>
+            <div class="project-hero-meta">
+                <div class="project-meta-item">
+                    <span class="project-meta-label">ROLE</span>
+                    <span class="project-meta-value">Sole Developer</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">YEAR</span>
+                    <span class="project-meta-value">2025</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">TYPE</span>
+                    <span class="project-meta-value">PWA / Full-Stack</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">STATUS</span>
+                    <span class="project-meta-value text-electric">Live (personal use)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="project-body">
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">What I Built</h2>
+            <div class="project-text">
+                <p>
+                    A nutrition tracking progressive web app built for daily use. The core problem: logging food accurately is tedious if you have to search a database for every ingredient. The solution is a conversational input layer: type "150g chicken breast with 200g rice and a tbsp of olive oil" and the Claude Sonnet API parses that into structured macro data. You confirm, edit if needed, and save. No searching, no drop-downs.
+                </p>
+                <p>
+                    The app has been my primary nutrition tool for over 90 consecutive days. That sustained real-world use has driven every iteration — the batch cook system, the pantry tracker, the receipt scanner all came from hitting actual friction points.
+                </p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Database Architecture</h2>
+            <div class="arch-diagram">
+<span class="neutral">PostgreSQL — 12+ tables</span>
+
+<span class="highlight">daily_logs</span>         <span class="dim">← one row per day per user</span>
+<span class="highlight">meal_entries</span>        <span class="dim">← individual logged meals, linked to daily_log</span>
+<span class="highlight">meal_micros</span>         <span class="dim">← micronutrient breakdown per meal entry</span>
+<span class="highlight">saved_meals</span>         <span class="dim">← reusable meal templates with macro totals</span>
+<span class="highlight">food_items</span>          <span class="dim">← verified database of ingredients + macros</span>
+<span class="highlight">recipes</span>             <span class="dim">← batch cook recipes with serving count</span>
+<span class="highlight">recipe_ingredients</span>  <span class="dim">← ingredients per recipe, linked to food_items</span>
+<span class="highlight">pantry_state</span>        <span class="dim">← current stock: quantity, category, expiry</span>
+<span class="highlight">receipts</span>            <span class="dim">← scanned receipt records</span>
+<span class="highlight">receipt_items</span>       <span class="dim">← parsed line items from receipts</span>
+<span class="highlight">micro_targets</span>       <span class="dim">← per-user NHS RDA micronutrient targets</span>
+<span class="highlight">targets</span>             <span class="dim">← per-user daily macro targets</span>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Core Features</h2>
+            <div class="project-features">
+                <div class="project-feature">
+                    <div class="project-feature-icon">💬</div>
+                    <h3 class="project-feature-title">Conversational Food Logging</h3>
+                    <p class="project-feature-desc">Type meals in plain English. The Claude Sonnet API parses natural language into protein, carbs, fat, calories, and fibre. You see the parsed result and confirm, edit individual values, or reject before anything is saved to the database.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">🍳</div>
+                    <h3 class="project-feature-title">Batch Cook System</h3>
+                    <p class="project-feature-desc">Describe a recipe in natural language. The API creates it with per-portion macros calculated from the verified food item database. Raw ingredients are deducted from pantry on cook. Remaining portions are tracked — log a portion and pantry updates accordingly.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">🧾</div>
+                    <h3 class="project-feature-title">Receipt OCR</h3>
+                    <p class="project-feature-desc">Photograph a shopping receipt. The AI extracts line items, matches each against the verified food database, and auto-populates the pantry with quantities and expiry estimates. Reduces pantry entry from minutes to seconds.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">🤖</div>
+                    <h3 class="project-feature-title">AI Meal Suggestions</h3>
+                    <p class="project-feature-desc">Scores all 26+ saved meals against remaining daily macro targets. Then generates contextual suggestions using pantry contents, food exclusions, meal history, time of day, and the remaining macro gap. Surfaces what to eat next, not just what you've eaten.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">🥦</div>
+                    <h3 class="project-feature-title">Micronutrient Tracking</h3>
+                    <p class="project-feature-desc">Tracks intake against NHS RDA targets for key micronutrients. Traffic-light status per nutrient. Separate from macros — you can hit your protein target and still see where you're consistently under on vitamins or minerals.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">🏪</div>
+                    <h3 class="project-feature-title">Pantry Management</h3>
+                    <p class="project-feature-desc">Tracks quantities, categories, and expiry dates. Usage rates update automatically as meals are logged. The meal suggester draws from pantry contents to recommend meals you can actually cook right now.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">The App</h2>
+            <div class="project-gallery" style="grid-template-columns: 1fr 1fr; gap: 24px;">
+                <div class="project-gallery-item">
+                    <img src="../assets/images/macro-tracker/nutrition dashboard.png" alt="Nutrition Dashboard">
+                    <p class="gallery-caption">Nutrition Dashboard with Macro Breakdown</p>
+                </div>
+                <div class="project-gallery-item">
+                    <img src="../assets/images/macro-tracker/graph showing calories.png" alt="Calorie Tracking Graph">
+                    <p class="gallery-caption">Calorie Tracking Over Time</p>
+                </div>
+            </div>
+            <div class="project-gallery" style="grid-template-columns: 1fr; gap: 24px; margin-top: 24px;">
+                <div class="project-gallery-item">
+                    <img src="../assets/images/macro-tracker/image of pantry and recipet scanning tool.png" alt="Pantry and Receipt Scanner">
+                    <p class="gallery-caption">Pantry Management and Receipt OCR Scanner</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">The AI Works at Two Levels</h2>
+            <div class="project-text">
+                <p>
+                    Claude is involved in two completely separate ways in this project. First, it's the development tool: the entire codebase was built through AI-assisted pair programming, with each feature passing through structured engineering, product, design, QA, and operations review gates before being committed.
+                </p>
+                <p>
+                    Second, it's the runtime engine: the Claude Sonnet API runs live in production, parsing user input into structured data on every food log, receipt scan, and meal suggestion request. The user never touches a database search field; the AI handles the unstructured-to-structured conversion.
+                </p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">When It Went Wrong</h2>
+            <div class="callout">
+                <p class="callout-label">DEBUGGING STORY</p>
+                <p>
+                    During a build session, an AI-written Python script hit a unicode encoding error and silently wrote an empty file over the 260-line MealSuggester React component. The app went white. The error message pointed to <code>.length on undefined</code> — not the real problem.
+                </p>
+                <p style="margin-top: 16px;">
+                    Traced back to a 0-byte file. The component couldn't be recovered from the Docker container because only backend files are volume-mounted; frontend build files aren't. The component had to be rewritten from scratch.
+                </p>
+                <p style="margin-top: 16px;">
+                    The first rewrite attempt failed because the AI assumed different prop names than the parent component actually passes. Caught from the error output, corrected against the actual parent, deployed clean. Total recovery time: one session.
+                </p>
+            </div>
+            <div class="project-text">
+                <p>
+                    This incident changed how backend scripts are run during builds: temp files write to a separate staging path first, and the component swap only happens after a byte-count validation check on the output.
+                </p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Deployment</h2>
+            <div class="project-text">
+                <p>
+                    Runs on a self-managed Ubuntu VPS (217.154.41.233) via Docker Compose. The backend Node.js/Express service and PostgreSQL database run as separate containers with a shared network. Backend source is volume-mounted for rapid iteration; the React PWA builds to a static dist folder served via Nginx.
+                </p>
+            </div>
+            <div class="code-snippet">version: '3.8'
+services:
+  api:
+    build: ./server
+    volumes:
+      - ./server:/app
+    environment:
+      - DATABASE_URL=postgresql://...
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./client/dist:/usr/share/nginx/html
+    ports:
+      - "80:80"</div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Tech Stack</h2>
+            <div class="skills-list mt-40">
+                <span class="skill-item">REACT (PWA)</span>
+                <span class="skill-item">NODE.JS / EXPRESS</span>
+                <span class="skill-item">POSTGRESQL</span>
+                <span class="skill-item">CLAUDE SONNET API</span>
+                <span class="skill-item">DOCKER COMPOSE</span>
+                <span class="skill-item">NGINX</span>
+                <span class="skill-item">SELF-HOSTED VPS</span>
+                <span class="skill-item">REST API</span>
+                <span class="skill-item">JWT AUTH</span>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <div class="project-cta" style="text-align: center; margin-top: 20px;">
+                <a href="https://apps.tag-art.co.uk/macros" target="_blank" class="contact-btn primary" style="display: inline-flex; align-items: center; gap: 12px;">
+                    LAUNCH APP →
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="next-project">
+        <p class="next-project-label">NEXT PROJECT</p>
+        <a href="briefcraft.html" class="next-project-link">
+            <h2 class="next-project-title">BRIEFCRAFT →</h2>
+        </a>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="../js/components.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

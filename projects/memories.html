@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+
+    <title>Memories — Thomas Hughes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-text" id="cursorText">VIEW</div>
+    <div id="nav-placeholder"></div>
+
+    <section class="project-hero">
+        <div class="project-hero-bg">
+            <img src="../assets/images/memories/whole album view with extended family members.png" alt="Memories">
+            <div class="project-hero-overlay"></div>
+        </div>
+        <div class="project-hero-content">
+            <a href="../index.html#work" class="project-hero-back">← BACK TO PROJECTS</a>
+            <h1 class="project-hero-title">MEMORIES</h1>
+            <p class="project-hero-subtitle">
+                Family photo archive with a Next.js frontend and Python FastAPI backend. Cross-family photo linking, deterministic colour schemes per family, share codes, and a timeline UI. Deployed on a self-hosted VPS via Docker.
+            </p>
+            <div class="project-hero-meta">
+                <div class="project-meta-item">
+                    <span class="project-meta-label">ROLE</span>
+                    <span class="project-meta-value">Sole Developer</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">YEAR</span>
+                    <span class="project-meta-value">2025</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">TYPE</span>
+                    <span class="project-meta-value">Full-Stack / Family Tool</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">STATUS</span>
+                    <span class="project-meta-value text-electric">Live</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="project-body">
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">What I Built</h2>
+            <div class="project-text">
+                <p>
+                    A private photo archive for family use. The premise is straightforward: upload photos, organise them by family, browse by timeline. The interesting engineering is in the cross-family linking system — a photo can belong to multiple family groups simultaneously, so a photo from a family gathering appears in both the Hughes and the extended family archives without being duplicated.
+                </p>
+                <p>
+                    This project was also a deliberate exercise in using Python for the backend rather than Node.js. FastAPI handles the API layer with async route handlers, Pydantic for request validation, and SQLAlchemy for database access. The frontend is Next.js talking to it over REST.
+                </p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Architecture</h2>
+            <div class="arch-diagram">
+<span class="neutral">┌─────────────────────────────────────┐
+│         Next.js Frontend            │
+│   Timeline, family views, upload    │
+└──────────────┬──────────────────────┘
+               │ REST API
+┌──────────────▼──────────────────────┐
+│        Python / FastAPI             │
+│  Pydantic validation, async routes  │
+│  SQLAlchemy ORM, file handling      │
+└──────────┬───────────────────────────┘
+           │
+┌──────────▼──────────┐
+│  PostgreSQL          │
+│  photos / families / │
+│  family_links /      │
+│  share_codes / users │
+└──────────────────────┘</span>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Key Features</h2>
+            <div class="project-features">
+                <div class="project-feature">
+                    <div class="project-feature-icon">🔗</div>
+                    <h3 class="project-feature-title">Cross-Family Linking</h3>
+                    <p class="project-feature-desc">A photo can be linked to multiple family groups via a junction table. Uploading a group photo once makes it visible in every relevant family's archive. No duplication, no separate upload per family.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">🎨</div>
+                    <h3 class="project-feature-title">Deterministic Colour Schemes</h3>
+                    <p class="project-feature-desc">Each family gets a consistent colour identity derived deterministically from their family ID. The same family always gets the same accent colour — no manual assignment, no colour clashes, and new families get a colour automatically on creation.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">🔑</div>
+                    <h3 class="project-feature-title">Share Codes</h3>
+                    <p class="project-feature-desc">Generate a time-limited share code for a specific album or family view. Recipients can browse that view without an account. Codes expire and can be revoked. No public URL that stays live indefinitely.</p>
+                </div>
+                <div class="project-feature">
+                    <div class="project-feature-icon">📅</div>
+                    <h3 class="project-feature-title">Timeline UI</h3>
+                    <p class="project-feature-desc">Photos are displayed in chronological order with date grouping. Scroll through years and months. Filter by family or by individual. The timeline reads EXIF date data from uploads where available, falling back to upload date.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">The App</h2>
+            <div class="project-gallery" style="grid-template-columns: 2fr 1fr; gap: 24px;">
+                <div class="project-gallery-item">
+                    <img src="../assets/images/memories/open album showing two dogs.png" alt="Open Album View">
+                    <p class="gallery-caption">Album View — Photo Gallery</p>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+                    <div class="project-gallery-item">
+                        <img src="../assets/images/memories/log in screen.png" alt="Login Screen">
+                        <p class="gallery-caption">Login Screen</p>
+                    </div>
+                    <div class="project-gallery-item">
+                        <img src="../assets/images/memories/black and white photo A.png" alt="Black and White Photo">
+                        <p class="gallery-caption">Historic Family Photo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="project-gallery" style="grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;">
+                <div class="project-gallery-item">
+                    <img src="../assets/images/memories/whole album view with extended family members.png" alt="Full Album View">
+                    <p class="gallery-caption">Full Album — Extended Family Members</p>
+                </div>
+                <div class="project-gallery-item">
+                    <img src="../assets/images/memories/black and white photo B.png" alt="Black and White Photo">
+                    <p class="gallery-caption">Archived Family Photo</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Why FastAPI</h2>
+            <div class="project-text">
+                <p>
+                    Most of my backend work is in Node.js/Express. Memories was a deliberate choice to build a full production backend in Python to confirm I can operate comfortably in that stack. FastAPI specifically was chosen for its async-first design, automatic OpenAPI documentation, and Pydantic's request validation — all of which make the API surface well-defined and easy to reason about.
+                </p>
+                <p>
+                    The result: a fully typed Python API with auto-generated docs, running in Docker alongside the Next.js frontend and PostgreSQL, deployed on the same self-managed VPS as the other projects.
+                </p>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <h2 class="project-section-title">Tech Stack</h2>
+            <div class="skills-list mt-40">
+                <span class="skill-item">NEXT.JS</span>
+                <span class="skill-item">PYTHON</span>
+                <span class="skill-item">FASTAPI</span>
+                <span class="skill-item">POSTGRESQL</span>
+                <span class="skill-item">SQLALCHEMY</span>
+                <span class="skill-item">PYDANTIC</span>
+                <span class="skill-item">DOCKER</span>
+                <span class="skill-item">SELF-HOSTED VPS</span>
+            </div>
+        </section>
+
+        <section class="project-section reveal">
+            <div class="project-cta" style="text-align: center; margin-top: 20px;">
+                <a href="https://memories.tag-art.co.uk" target="_blank" class="contact-btn primary" style="display: inline-flex; align-items: center; gap: 12px;">
+                    LAUNCH APP →
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="next-project">
+        <p class="next-project-label">NEXT PROJECT</p>
+        <a href="london-research-map.html" class="next-project-link">
+            <h2 class="next-project-title">LONDON RESEARCH MAP →</h2>
+        </a>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="../js/components.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
